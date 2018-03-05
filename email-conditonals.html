@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+  <meta charset="utf-8">
+  <!-- utf-8 works for most cases -->
+  <meta name="viewport" content="width=device-width">
+  <!-- Forcing initial-scale shouldn't be necessary -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Use the latest (edge) version of IE rendering engine -->
+  <meta name="x-apple-disable-message-reformatting">
+  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+  <title></title>
+  <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+  <!-- Web Font / @font-face : BEGIN -->
+  <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->
+
+  <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+  <!--[if mso]>
+        <style>
+            * {
+                font-family: sans-serif !important;
+            }
+        </style>
+    <![endif]-->
+
+  <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+  <!--[if !mso]><!-->
+  <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+  <!--<![endif]-->
+
+  <!-- Web Font / @font-face : END -->
+
+  <!-- CSS Reset -->
+  <style>
+    /* What it does: Remove spaces around the email design added by some email clients. */
+    /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+
+    html,
+    body {
+      margin: 0 auto !important;
+      padding: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+    }
+      div[style*="margin: 16px 0"] { margin:0 !important; }
+    /* What it does: Stops email clients resizing small text. */
+
+    * {
+      -webkit-text-size-adjust: 100%;
+    }
+    /* What it does: Centers email on Android 4.4 */
+
+    div[style*="margin: 16px 0"] {
+      margin: 0 !important;
+    }
+    /* What it does: Stops Outlook from adding extra spacing to tables. */
+
+    table,
+    td {
+      mso-table-lspace: 0pt !important;
+      mso-table-rspace: 0pt !important;
+    }
+    /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+
+    table {
+      border-spacing: 0 !important;
+      border-collapse: collapse !important;
+      table-layout: fixed !important;
+      margin: 0 auto !important;
+    }
+
+    table table table {
+      table-layout: auto;
+    }
+    /* What it does: Uses a better rendering method when resizing images in IE. */
+
+    img {
+    }
+    /* What it does: A work-around for email clients meddling in triggered links. */
+
+    *[x-apple-data-detectors],
+    /* iOS */
+
+    .x-gmail-data-detectors,
+    /* Gmail */
+
+    .x-gmail-data-detectors *,
+    .aBn {
+      border-bottom: 0 !important;
+      cursor: default !important;
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+    /* What it does: Prevents Gmail from displaying an download button on large, non-linked images. */
+
+    .a6S {
+      display: none !important;
+      opacity: 0.01 !important;
+    }
+    /* If the above doesn't work, add a .g-img class to any image in question. */
+
+    img.g-img+div {
+      display: none !important;
+    }
+    /* What it does: Prevents underlining the button text in Windows 10 */
+
+    .button-link {
+      text-decoration: none !important;
+    }
+    /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+    /* Create one of these media queries for each additional viewport size you'd like to fix */
+    /* Thanks to Eric Lepetit (@ericlepetitsf) for help troubleshooting */
+
+    @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+      /* iPhone 6 and 6+ */
+      .email-container {
+        min-width: 375px !important;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+
+
+      td[class=digestTitle] {
+        font-size: 24px !important;
+      }
+
+      a[class=facebookHeader] {
+        background-image: url('http://www.irishtimes.com/static/aprimo/ac/Facebook-header@2x.png') !important;
+        background-color: #ffffff;
+        background-size: 30px 30px;
+        background-repeat: no-repeat;
+        width: 30px !important;
+        height: 30px !important;
+        display: block;
+      }
+
+      a[class=twitterHeader] {
+        background-image: url('http://www.irishtimes.com/static/aprimo/ac/twitter-header@2x.png') !important;
+        background-color: #ffffff;
+        background-size: 30px 30px;
+        background-repeat: no-repeat;
+        width: 30px !important;
+        height: 30px !important;
+        display: block;
+      }
+    }
+  </style>
+
+  <!-- Progressive Enhancements -->
+  <style>
+    a {
+      text-decoration: none;
+    }
+    /* What it does: Hover styles for buttons */
+
+    .button-td,
+    .button-a {
+      transition: all 100ms ease-in;
+    }
+
+    .button-td:hover,
+    .button-a:hover {
+      background: #555555 !important;
+      border-color: #555555 !important;
+    }
+    /* Media Queries */
+
+    @media screen and (max-width: 650px) {
+      table[class=fluid],
+      table[class=fluid] img {
+        width: 100% !important;
+      }
+
+      /* Mobile Images */
+      .responsive{
+        width: 100%!important;
+        max-width: 100%!important;
+        visibility: visible!important;
+        display: block!important;
+        width: 100%!important;
+        height: auto!important;
+        max-width: 100%!important;
+        max-height: 100%!important;
+        visibility: visible!important;
+        display: block!important;
+      }
+
+      td[class=mobile-only] {
+        width: 100%!important;
+        max-width: 100%!important;
+        visibility: visible!important;
+        display: block!important;
+        width: 100%!important;
+        height: auto!important;
+        max-width: 100%!important;
+        max-height: 100%!important;
+        visibility: visible!important;
+        display: block!important;
+      }
+      td[class=mobile-only] img, img.mobile-only {
+        display: block!important;
+        width: 100%!important;
+        height: auto!important;
+        max-width: 100%!important;
+        max-height: 100%!important;
+        visibility: visible!important;
+      }
+      tr[class=desktop-only],
+      td[class=desktop-only],
+      td[class=desktop-only] img, img.desktop-only {
+        max-height: 0!important;
+        font-size: 0!important;
+        width: 0!important;
+        display: none!important;
+        height: 0!important;
+        visibility: hidden!important;
+        padding: 0!important;
+        opacity: 0!important;
+      }
+      /* App Buttons */
+      a.store-badge{
+        display: block!important;
+        width: 135px!important;
+        height: 40px!important;
+        background-repeat: no-repeat!important;
+        background-size: contain!important;
+      }
+      a.store-badge img{
+        display:none!important;
+      }
+      a.store-badge.apple{
+        background-image: url('https://www.irishtimes.com/static/aprimo/ac/app-store-badgex2.png')!important;
+      }
+      a.store-badge.google{
+        background-image: url('https://www.irishtimes.com/static/aprimo/ac/play-store-badgex2.png')!important;
+      }
+      td[class=masthead] {
+        background-image: url('https://www.irishtimes.com/static/aprimo/ac/masthead-welcome-mobile.png?=37893') !important;
+        background-color: #ffffff;
+        background-size: 100%;
+        background-position: 0;
+        background-repeat: no-repeat;
+        width: 100% !important;
+        height: 50px !important;
+      }
+      td[class=masthead] img {
+        display: none !important;
+      }
+
+      .mobile-centered {
+        text-align: center!important;
+      }
+      td[class=mobile-centered]{
+        padding:0!important;
+      }
+      .email-container {
+        width: 100% !important;
+        margin: auto !important;
+      }
+
+      /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+      .fluid {
+        max-width: 100% !important;
+        height: auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      /* What it does: Forces table cells into full-width rows. */
+      .stack-column,
+      .stack-column-center {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        direction: ltr !important;
+        box-sizing:border-box!important;
+      }
+      /* And center justify these ones. */
+      .stack-column-center {
+        text-align: center !important;
+      }
+
+      /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+      .center-on-narrow {
+        text-align: center !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        float: none !important;
+      }
+      table.center-on-narrow {
+        display: inline-block !important;
+      }
+
+      /* What it does: Adjust typography on small screens to improve readability */
+      .email-container p {
+        font-size: 17px !important;
+        line-height: 22px !important;
+      }
+    }
+
+    @media only screen and (min-width:651px) {
+      td[class=mobile-only] {
+        max-height: 0!important;
+        font-size: 0!important;
+        display: none!important;
+        visibility: hidden!important
+      }
+    }
+
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v13/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+    }
+    /* latin */
+
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v13/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+    }
+
+    @font-face {
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 300;
+      src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v13/kcf5uOXucLcbFOydGU24WALUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+    }
+  </style>
+
+  <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+  <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+</head>
+
+<body width="100%" bgcolor="#f1f1f1" style="background-color:#f1f1f1; margin: 0; mso-line-height-rule: exactly;">
+
+  <!--[if mso]>
+    <style type="text/css">
+        body, table, td, a, span, p {font-family: Arial, Helvetica, sans-serif !important;}
+    </style>
+    <![endif]-->
+
+
+
+  <div style="width: 100%; background: #f1f1f1;">
+
+    <!-- Visually Hidden Preheader Text : BEGIN -->
+    <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+      You now have unlimited access to the Irish Times’ award-winning journalism
+    </div>
+    <!-- Visually Hidden Preheader Text : END -->
+
+    <!--[if mso | IE]>
+      <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" align="center" style="width:100%;" bgcolor="#f1f1f1">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+             <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="620" align="center" style="width:620px;">
+                  <tr>
+                      <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+                <![endif]-->
+
+
+    <!-- Email Masthead : BEGIN -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container">
+      <tr>
+        <td class="masthead">
+          <img src="http://www.irishtimes.com/static/aprimo/ac/masthead-welcome.png" width="650" height="60" class="responsive" alt="The Irish Times masthead" border="0" style="width: 100%; max-width: 650px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #FFFFFF;">
+        </td>
+      </tr>
+    </table>
+    <!-- Email Masthead : END -->
+
+    <!-- Welcome Message Header -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container">
+      <tr>
+        <td bgcolor="#393B41" style="background-color:#393B41;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td bgcolor="#393b41" style="line-height:200%;background-color:#393b41;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:400;font-size:28px;text-align:center;color:#ffffff;">
+          Welcome <span style="color:#8FB5F9;">%FIRSTNAME%</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table  width="100%" border="0" cellpadding="0" class="fluid" cellspacing="0">
+            <tr align="center">
+              <td valign="top">
+                <table  width="100%" border="0" cellpadding="0" cellspacing="0">
+                  <tbody>
+                    <tr>
+                      <td align="center" valign="top" ><img src="http://www.irishtimes.com/static/aprimo/ac/welcome-header.png" alt="" width="650" style="width: 100%; max-width: 650px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;" class="responsive"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!-- Welcome Message Header : END -->
+
+    <!-- Email message -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container" bgcolor="#FFFFFF" style="background-color:#FFFFFF;">
+      <tr>
+        <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;line-height:150%;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:400;font-size:16px;text-align:left;background-color:#FFFFFF;">
+            Welcome to your Irish Times standard digital subscription. You now have unlimited access to the Irish Times’ award-winning journalism. Over the next few weeks we will send you a series of short emails designed to help you get the most out of your subscription.
+            <br>
+            <br>
+            You can find all features <a href="https://www.irishtimes.com/your-subscription/subscription-tour">here</a>.
+            <br>
+            <br>
+            We hope you enjoy your subscription to The Irish Times.
+            <br>
+            <br>
+            <span style="font-family:Times, serif;font-style:italic;font-weight:600;">Paul O'Neill</span>
+            <br>
+            Editor, The Irish Times
+        </td>
+      </tr>
+    </table>
+    <!-- Email message : END -->
+    <!-- Header for features -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container" bgcolor="#f3f4f5" style="background-color:#f3f4f5;">
+      <tr>
+        <td style="line-height:200%;padding:10px;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:600;font-size:18px;text-align:center;">
+          Your subscription includes full access to:
+        </td>
+      </tr>
+
+    </table>
+    <!-- Header for features : END -->
+
+    <!-- Feature 1 -->
+    <table role="presentation" bgcolor="#f3f4f5" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container">
+      <!--Full width mobile image -->
+
+      <tr>
+        <td class="mobile-only" style="mso-hide:all;">
+          <table width="100%" border="0" cellpadding="0" class="fluid" cellspacing="0" style="mso-hide:all;">
+            <tr style="mso-hide:all;" id="layout-row800" align="center">
+              <td valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="mso-hide:all;">
+                  <tbody>
+                    <tr>
+                      <td style="mso-hide:all;" class="mobile-only" align="center" valign="top" width="100%"><img class="mobile-only" src="http://www.irishtimes.com/static/aprimo/ac/it-mobile.png" alt="" width="650" style="display:none; font-size:0; line-height:0; mso-hide: all;max-height: 0; max-width: 0; width:0;"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!--Full width mobile image : END -->
+
+      <tr>
+        <td bgcolor="#f3f4f5">
+          <!-- Left column -->
+          <table cellSpacing="0" cellPadding="0" width="100%" border="0" bgcolor="#f3f4f5">
+            <tr>
+              <td bgcolor="#f3f4f5">
+                <table class="fluid" width="320" align="left">
+                  <tr>
+                    <td bgcolor="#f3f4f5" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;">
+                      <a href="http://www.irishtimes.com" style="font-family:Lato, Helvetica, Arial, sans-serif;color: #869cb4; font-size: 20px; font-weight: inherit; line-height: inherit; text-decoration: inherit;">irishtimes.com</a>
+                      <br>
+                      <br>
+                      <span style="font-family:Lato, Helvetica, Arial, sans-serif;font-size:14px;line-height:150%;">
+                        Enjoy unlimited access to our award-winning journalism on irishtimes.com.
+                        <br>
+                        Sign in using your email address and password. Once signed in, you will be able to browse the benefits of your subscriptions.
+                      </span>
+                    </td>
+                  </tr>
+                  <!-- Sign in Button -->
+                  <tr>
+                    <td class="mobile-centered" align="left" style="padding-left:20px;">
+                      <div>
+                        <!--[if mso]>
+                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.irishtimes.com/signin" style="height:40px;v-text-anchor:middle;width:175px;" arcsize="15%" stroke="f" fillcolor="#869CB4">
+                          <w:anchorlock/>
+                          <center>
+                          <![endif]-->
+                        <a href="https://www.irishtimes.com/signin" style="background-color:#869CB4;border-radius:6px;color:#FFFFFF;display:inline-block;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:700; font-size:12px;line-height:40px;text-align:center;text-decoration:none;width:175px;-webkit-text-size-adjust:none;"
+                          target="_blank">SIGN IN</a>
+                        <!--[if mso]>
+                          </center>
+                          </v:roundrect>
+                          <![endif]-->
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Sign in Button : END -->
+                </table>
+                <!-- Left column : END -->
+
+                <!-- Right column -->
+                <table align="left" width="325" bgcolor="#f3f4f5" border="0" cellpadding="0" class="fluid" cellspacing="0">
+                  <tr class="desktop-only">
+                    <td class="desktop-only" align="right" style="padding-right:10px;">
+                      <img class="desktop-only" src="http://www.irishtimes.com/static/aprimo/ac/it-laptop.png" alt="" width="305" style="display: block; border: none; outline: none; width: 305px; opacity: 1; max-width: 100%;">
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#f3f4f5">&nbsp;</td>
+            </tr>
+          </table>
+          <!-- Left column : END-->
+
+        </td>
+      </tr>
+    </table>
+    <!-- Feature 1 : END -->
+
+    <!-- Feature 2 -->
+    <table role="presentation" bgcolor="#f3f4f5" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container">
+      <!--Full width mobile image -->
+      <tr>
+        <td class="mobile-only" style="mso-hide:all;">
+          <table width="100%" border="0" cellpadding="0" class="fluid" cellspacing="0" style="mso-hide:all;">
+            <tr style="mso-hide:all;" id="layout-row800" align="center">
+              <td valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="mso-hide:all;">
+                  <tbody>
+                    <tr>
+                      <td style="mso-hide:all;" class="mobile-only" align="center" valign="top" width="100%"><img class="mobile-only" src="http://www.irishtimes.com/static/aprimo/ac/news-app-mobile.png" alt="" width="650" style="display:none; font-size:0; line-height:0; mso-hide: all;max-height: 0; max-width: 0; width:0;"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!--Full width mobile image : END -->
+
+      <tr>
+        <td bgcolor="#f3f4f5">
+          <!-- Left column -->
+          <table cellSpacing="0" cellPadding="0" width="100%" border="0" bgcolor="#393b41">
+            <tr>
+              <td bgcolor="#393b41">
+                <table align="left" width="325" bgcolor="#393b41" border="0" cellpadding="0" class="fluid" cellspacing="0">
+                  <tr class="desktop-only">
+                    <td class="desktop-only" align="right" style="padding:10px;">
+                      <img class="desktop-only" src="http://www.irishtimes.com/static/aprimo/ac/news-app.png" alt="" width="305" style="display: block; border: none; outline: none; width: 305px; opacity: 1; max-width: 100%;">
+                    </td>
+                  </tr>
+                </table>
+                <table class="fluid" width="320" align="left">
+                  <tr>
+                    <td bgcolor="#393b41" style="color: #869cb4; font-size: 20px;font-family:Lato, Helvetica, Arial, sans-serif;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;">
+                      The News App
+                    </td>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#393b41" style="line-height:150%;padding-left:20px;padding-right:20px;padding-bottom:20px;font-family:Lato, Helvetica, Arial, sans-serif;font-size:14px;color:#FFFFFF;">
+                      Stay right up to date with all of your areas of interest, from news and business to sport and lifestyle with The Irish Times News App. Simply download the app and remember to sign in.
+                    </td>
+                  </tr>
+                  <!-- Apps buttons -->
+                  <tr>
+                    <td class="mobile-centered">
+                      <table border="0" cellpadding="0" cellspacing="0" width="300">
+                        <tr>
+                          <td align="left">
+                            <a class="store-badge apple" href="https://itunes.apple.com/us/app/the-irish-times-news/id365544593">
+                              <img class="desktop-only" src="http://www.irishtimes.com/static/aprimo/ac/app-store-badge.png" width="135" height="40" alt="app-store-badge-135x40.png" title="Download IT News App for iOS">
+                            </a>
+                          </td>
+                          <td align="right">
+                            <a class="store-badge google" href="https://play.google.com/store/apps/details?id=com.irishtimes.newsapp&hl=en">
+                              <img class="desktop-only" src="http://www.irishtimes.com/static/aprimo/ac/play-store-badge.png" width="135" height="40" alt="play-store-badge-135x40.png" title="Download IT News App for Android">
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <!-- App buttons : END -->
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#393b41">&nbsp;</td>
+            </tr>
+          </table>
+          <!-- Left column : END-->
+
+        </td>
+      </tr>
+    </table>
+    <!-- Feature 2 : END -->
+
+    <!-- Feature 3 -->
+    <table role="presentation" bgcolor="#f3f4f5" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container">
+      <!--Full width mobile image -->
+      <tr>
+        <td class="mobile-only" style="mso-hide:all;">
+          <table width="100%" border="0" cellpadding="0" class="fluid" cellspacing="0" style="mso-hide:all;">
+            <tr style="mso-hide:all;" id="layout-row800" align="center">
+              <td valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="mso-hide:all;">
+                  <tbody>
+                    <tr>
+                      <td style="mso-hide:all;" class="mobile-only" align="center" valign="top" width="100%"><img class="mobile-only" src="http://www.irishtimes.com/static/aprimo/ac/archive-mobile.png" alt="" width="650" style="display:none; font-size:0; line-height:0; mso-hide: all;max-height: 0; max-width: 0; width:0;"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!--Full width mobile image : END -->
+
+      <tr>
+        <td bgcolor="#f3f4f5">
+          <!-- Left column -->
+          <table cellSpacing="0" cellPadding="0" width="100%" border="0" bgcolor="#f3f4f5">
+            <tr>
+              <td bgcolor="#f3f4f5">
+                <table class="fluid" width="320" align="left">
+                  <tr>
+                    <td bgcolor="#f3f4f5" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;font-family:Lato, Helvetica, Arial, sans-serif;">
+                      <span style="font-family:Lato, Helvetica, Arial, sans-serif;color: #869cb4; font-size: 20px; font-weight: inherit; line-height: inherit; text-decoration: inherit;">
+                        The Irish Times Archive
+                      </span>
+                      <br>
+                      <br>
+                      <span style="line-height:150%;font-family:Lato, Helvetica, Arial, sans-serif;font-size:14px;">
+                         Enjoy unrestricted access to more than 150 years of our archives, including the millions of articles published since our first edition on March 29th, 1859.                         <br>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="mobile-centered" align="left" style="padding-left:20px;">
+                      <div>
+                        <!--[if mso]>
+                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.irishtimes.com/archive" style="height:40px;v-text-anchor:middle;width:175px;" arcsize="15%" stroke="f" fillcolor="#869CB4">
+                          <w:anchorlock/>
+                          <center>
+                          <![endif]-->
+                        <a href="https://www.irishtimes.com/archive" style="background-color:#869CB4;border-radius:6px;color:#FFFFFF;display:inline-block;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:700; font-size:12px;line-height:40px;text-align:center;text-decoration:none;width:175px;-webkit-text-size-adjust:none;"
+                          target="_blank">SIGN IN</a>
+                        <!--[if mso]>
+                          </center>
+                          </v:roundrect>
+                          <![endif]-->
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <!-- Left column : END -->
+
+                <!-- Right column -->
+                <table align="left" width="325" bgcolor="#f3f4f5" border="0" cellpadding="0" class="fluid" cellspacing="0">
+                  <tr class="desktop-only">
+                    <td class="desktop-only" align="right" style="padding-right:10px;padding-top:10px;">
+                      <img class="desktop-only" src="http://www.irishtimes.com/static/aprimo/ac/archive.png" alt="" width="305" style="display: block; border: none; outline: none; width: 305px; opacity: 1; max-width: 100%;">
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#f3f4f5">&nbsp;</td>
+            </tr>
+          </table>
+          <!-- Left column : END-->
+
+        </td>
+      </tr>
+    </table>
+    <!-- Feature 3 : END -->
+
+
+    <!-- Feature 4 -->
+    <table role="presentation" bgcolor="#f3f4f5" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container">
+      <!--Full width mobile image -->
+      <tr>
+        <td class="mobile-only" style="mso-hide:all;">
+          <table width="100%" border="0" cellpadding="0" class="fluid" cellspacing="0" style="mso-hide:all;">
+            <tr style="mso-hide:all;" id="layout-row800" align="center">
+              <td valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="mso-hide:all;">
+                  <tbody>
+                    <tr>
+                      <td style="mso-hide:all;" class="mobile-only" align="center" valign="top" width="100%"><img class="mobile-only" src="http://www.irishtimes.com/static/aprimo/ac/crossword-mobile.png" alt="" width="650" style="display:none; font-size:0; line-height:0; mso-hide: all;max-height: 0; max-width: 0; width:0;"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!--Full width mobile image : END -->
+
+      <tr>
+        <td bgcolor="#f3f4f5">
+          <!-- Left column -->
+          <table cellSpacing="0" cellPadding="0" width="100%" border="0" bgcolor="#393b41">
+            <tr>
+              <td bgcolor="#393b41">
+                <table align="left" width="325" bgcolor="#393b41" border="0" cellpadding="0" class="fluid" cellspacing="0">
+                  <tr class="desktop-only">
+                    <td class="desktop-only" align="right" style="padding:10px;">
+                      <img class="desktop-only" src="http://www.irishtimes.com/static/aprimo/ac/crossword.png" alt="" width="305" style="display: block; border: none; outline: none; width: 305px; opacity: 1; max-width: 100%;">
+                    </td>
+                  </tr>
+                </table>
+                <table class="fluid" width="320" align="left">
+                  <tr>
+                    <td bgcolor="#393b41" style="color: #869cb4; font-size: 20px;font-family:Lato, Helvetica, Arial, sans-serif;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;">
+                      Crossword Club
+                    </td>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#393b41" style="line-height:150%;padding-left:20px;padding-right:20px;padding-bottom:20px;font-family:Lato, Helvetica, Arial, sans-serif;font-size:14px;color:#FFFFFF;">
+                      Your subscription includes access to the latest Irish Times crosswords as well as an archive of over 6,000* crosswords. Check solutions, play against the clock, save and print crosswords.
+                    </td>
+                  </tr>
+                  <!-- Sign in Button -->
+                  <tr>
+                    <td class="mobile-centered" align="left" style="padding-left:20px;">
+                      <div>
+                        <!--[if mso]>
+                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://irishtimes.com/games/crosswords" style="height:40px;v-text-anchor:middle;width:175px;" arcsize="15%" strokecolor="#FFFFFF" fillcolor="#393b41">
+                          <w:anchorlock/>
+                          <center style="color:#FFFFFF;display:inline-block;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:700; font-size:12px;">
+                            SIGN IN
+                          </center>
+                          </v:roundrect>
+                          <![endif]-->
+                        <a href="https://irishtimes.com/games/crosswords" style="background-color:#393b41;border-radius:6px;border:1px solid #FFFFFF;color:#FFFFFF;display:inline-block;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:700; font-size:12px;line-height:40px;text-align:center;text-decoration:none;width:175px;-webkit-text-size-adjust:none;mso-hide:all;" target="_blank">SIGN IN</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Sign in Button : END -->
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#393b41">&nbsp;</td>
+            </tr>
+          </table>
+          <!-- Left column : END-->
+
+        </td>
+      </tr>
+    </table>
+    <!-- Feature 4 : END -->
+
+    <!-- Feature 5 -->
+    <table role="presentation" bgcolor="#f3f4f5" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container">
+      <!--Full width mobile image -->
+      <tr>
+        <td class="mobile-only" style="mso-hide:all;">
+          <table width="100%" border="0" cellpadding="0" class="fluid" cellspacing="0" style="mso-hide:all;">
+            <tr style="mso-hide:all;" id="layout-row800" align="center">
+              <td valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="mso-hide:all;">
+                  <tbody>
+                    <tr>
+                      <td style="mso-hide:all;" class="mobile-only" align="center" valign="top" width="100%"><img class="mobile-only" src="http://www.irishtimes.com/static/aprimo/ac/soa-mobile.png" alt="" width="650" style="display:none; font-size:0; line-height:0; mso-hide: all;max-height: 0; max-width: 0; width:0;"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!--Full width mobile image : END -->
+
+      <tr>
+        <td bgcolor="#f3f4f5">
+          <!-- Left column -->
+          <table cellSpacing="0" cellPadding="0" width="100%" border="0" bgcolor="#f3f4f5">
+            <tr>
+              <td bgcolor="#f3f4f5">
+                <table class="fluid" width="320" align="left">
+                  <tr>
+                    <td bgcolor="#f3f4f5" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;font-family:Lato, Helvetica, Arial, sans-serif;">
+                      <span style="font-family:Lato, Helvetica, Arial, sans-serif;color: #869cb4; font-size: 20px; font-weight: inherit; line-height: inherit; text-decoration: inherit;">
+                        Subscriber Only Articles
+                      <br>
+                      <br>
+                    </span>
+                      <span style="line-height:150%;font-family:Lato, Helvetica, Arial, sans-serif;font-size:14px;">
+                        Discover specially selected articles and curated emails available exclusively to our subscribers. Join the conversation and have your say on the issues of the day.                       </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="mobile-centered" align="left" style="padding-left:20px;">
+                      <div>
+                        <!--[if mso]>
+                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.irishtimes.com/your-subscription/subscriber-only-articles" style="height:40px;v-text-anchor:middle;width:175px;" arcsize="15%" stroke="f" fillcolor="#869CB4">
+                          <w:anchorlock/>
+                          <center>
+                          <![endif]-->
+                        <a href="https://www.irishtimes.com/your-subscription/subscriber-only-articles" style="background-color:#869CB4;border-radius:6px;color:#FFFFFF;display:inline-block;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:700; font-size:12px;line-height:40px;text-align:center;text-decoration:none;width:175px;-webkit-text-size-adjust:none;"
+                          target="_blank">SIGN IN</a>
+                        <!--[if mso]>
+                          </center>
+                          </v:roundrect>
+                          <![endif]-->
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <!-- Left column : END -->
+
+                <!-- Right column -->
+                <table align="left" width="325" bgcolor="#f3f4f5" border="0" cellpadding="0" class="fluid" cellspacing="0">
+                  <tr class="desktop-only">
+                    <td class="desktop-only" align="right" style="padding-right:10px;padding-top:10px;">
+                      <img class="desktop-only" src="http://www.irishtimes.com/static/aprimo/ac/soa.png" alt="" width="305" style="display: block; border: none; outline: none; width: 305px; opacity: 1; max-width: 100%;">
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#f3f4f5">&nbsp;</td>
+            </tr>
+          </table>
+          <!-- Left column : END-->
+
+        </td>
+      </tr>
+    </table>
+    <!-- Feature 5 : END -->
+
+    <!-- Feature 6 -->
+    <table role="presentation" bgcolor="#f3f4f5" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container">
+      <!--Full width mobile image -->
+      <tr>
+        <td class="mobile-only" style="mso-hide:all;">
+          <table width="100%" border="0" cellpadding="0" class="fluid" cellspacing="0" style="mso-hide:all;">
+            <tr style="mso-hide:all;" id="layout-row800" align="center">
+              <td valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="mso-hide:all;">
+                  <tbody>
+                    <tr>
+                      <td style="mso-hide:all;" class="mobile-only" align="center" valign="top" width="100%"><img class="mobile-only" src="http://www.irishtimes.com/static/aprimo/ac/soa-newsletter-mobile.jpg" alt="" width="650" style="display:none; font-size:0; line-height:0; mso-hide: all;max-height: 0; max-width: 0; width:0;"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!--Full width mobile image : END -->
+
+      <tr>
+        <td bgcolor="#f3f4f5">
+          <!-- Left column -->
+          <table cellSpacing="0" cellPadding="0" width="100%" border="0" bgcolor="#393b41">
+            <tr>
+              <td bgcolor="#393b41">
+                <table align="left" width="325" bgcolor="#393b41" border="0" cellpadding="0" class="fluid" cellspacing="0">
+                  <tr class="desktop-only">
+                    <td class="desktop-only" align="right" style="padding:10px;">
+                      <img class="desktop-only" src="http://www.irishtimes.com/static/aprimo/ac/soa-newsletter.png" alt="" width="305" style="display: block; border: none; outline: none; width: 305px; opacity: 1; max-width: 100%;">
+                    </td>
+                  </tr>
+                </table>
+                <table class="fluid" width="320" align="left">
+                  <tr>
+                    <td bgcolor="#393b41" style="color: #869cb4; font-size: 20px;font-family:Lato, Helvetica, Arial, sans-serif;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;">
+                      Subscriber Only Newsletters
+                    </td>
+                  </tr>
+                  <tr>
+                    <td bgcolor="#393b41" style="line-height:150%;padding-left:20px;padding-right:20px;padding-bottom:20px;font-family:Lato, Helvetica, Arial, sans-serif;font-size:14px;color:#FFFFFF;">
+                      Our curated emails are available exclusively to our subscribers. Inside Politics delivers insightful analysis from our politics team while IT Sunday gives you a chance to catch up and get ahead every Sunday.
+                    </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!-- Left column : END-->
+
+        </td>
+      </tr>
+    </table>
+    <!-- Feature 6 : END -->
+
+    <!-- Pre-footer content -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="650" style="margin: auto;" class="email-container" bgcolor="#f3f4f5" style="background-color:#f3f4f5;">
+      <tr>
+        <td bgcolor="#f3f4f5" style="background-color:#f3f4f5;">&nbsp;</td>
+      </tr>
+      <tr>
+                <td style="line-height:200%;padding:10px;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:600;font-size:18px;text-align:center;">
+                    If there's anything you need to know...
+                </td>
+            </tr>
+      <tr>
+        <td style="line-height:150%;padding:10px;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:400;font-size:14px;text-align:left;">
+          You should find the answer in our <a href="https://www.irishtimes.com/about-us/help" style="color: #5ba8f0; text-decoration: underline;">Frequently Asked Questions</a>.
+          If you don’t find the answers there, contact our Customer Care Team at <a href="mailto:digitalsubscriptions@irishtimes.com" style="color: #5ba8f0; text-decoration: underline;">digitalsubscriptions@irishtimes.com</a>
+          or call <a href="tel:+353(0)167580007" style="color: #5ba8f0; text-decoration: underline;">+353 (0)1 675 8007</a>.
+        </td>
+      </tr>
+      <tr>
+        <td style="line-height:150%;padding:10px;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:400;font-size:14px;text-align:left;">
+          This is email 1 of 4 outlining the benefits of your Irish Times subscription. If you do not wish to receive any more, you can <a href="%UNSUBSCRIBELINK%" style="color: #5ba8f0; text-decoration: underline;">unsubscribe.</a>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#f3f4f5" style="background-color:#f3f4f5;">&nbsp;</td>
+      </tr>
+        </table>
+    <!-- Pre-footer content : END -->
+
+        <!-- Footer -->
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="650" bgcolor="#393B41" style="margin: auto;background-color:#393B41;" class="email-container">
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="300" align="center">
+                <tr>
+                  <td class="footerFacebook" width="75" align="center"><a href="https://www.facebook.com/irishtimes/"><img style="display:block;" src="http://www.irishtimes.com/static/aprimo/ac/Facebook.png" width="33" height="33" alt="Facebook" title="Follow us on Facebook"/></a></td>
+                  <td class="footerTwitter" width="75" align="center"><a href="https://twitter.com/IrishTimes"><img style="display:block;"  src="http://www.irishtimes.com/static/aprimo/ac/Twitter.png" width="34" height="33" alt="Twitter" title="Follow us on Twitter"/></a></td>
+                  <td class="footerGoogle" width="75" align="center"><a href="https://plus.google.com/+irishtimes"><img style="display:block;"  src="http://www.irishtimes.com/static/aprimo/ac/GPlus.png" width="34" height="33" alt="GooglePlus" title="Hang us with us on GooglePlus"/></a></td>
+                  <td class="footerLinkedin" width="75" align="center"><a href="https://www.linkedin.com/company/the-irish-times"><img style="display:block;"  src="http://www.irishtimes.com/static/aprimo/ac/Linkedin.png" width="33" height="33" alt="LinkedIn" title="LinkedIn"/></a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td bgcolor="#393B41">&nbsp;</td>
+          </tr>
+        </table>
+        <!-- Email Legal section : END -->
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="650" bgcolor="#393B41" style="margin: auto;background-color:#393B41; border-top:solid 1px #2D3137;" class="email-container">
+
+          <tr>
+            <!-- Column : BEGIN -->
+            <td width="33.33%" class="stack-column-center" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td  style="line-height:150%;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:400; color:#ffffff; font-size:12px;text-align:center;" class="center-on-narrow">
+                    Registration Number<br>2514
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <!-- Column : END -->
+            <!-- Column : BEGIN -->
+            <td width="33.33%" class="stack-column-center" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="line-height:150%;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:400; color:#ffffff; font-size:12px;text-align:center;" class="center-on-narrow">
+                    Registration in Ireland as<br>The Irish Times DAC
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <!-- Column : END -->
+            <!-- Column : BEGIN -->
+            <td width="33.33%" class="stack-column-center" align="center" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="line-height:150%;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:400; color:#ffffff; font-size:12px;text-align:center;" class="center-on-narrow">
+                    Registration Office<br>24-28 Tara St. Dublin 2
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <!-- Column : END -->
+          </tr>
+        </table>
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="650" bgcolor="#393B41" style="margin: auto;background-color:#393B41; border-top:solid 1px #2D3137;" class="email-container">
+          <tr>
+            <td bgcolor="#393B41" style="background-color:#393B41;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="line-height:150%;font-family:Lato, Helvetica, Arial, sans-serif; font-weight:400; color:#ffffff; font-size:14px;text-align:center;">%SENDER-INFO-SINGLELINE%</td>
+          </tr>
+          <tr>
+            <td bgcolor="#393B41" style="background-color:#393B41;">&nbsp;</td>
+          </tr>
+        </table>
+        <!--[if mso | IE]>
+                </td></tr></table>
+          </td></tr></table>
+          <![endif]-->
+      </div>
+    </body>
+    </html>
